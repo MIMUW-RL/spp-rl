@@ -1,7 +1,6 @@
 # SPP-RL
-Implementation of SPP-RL approach.
+Library Implementing the SPP-RL approach.
 
-Work In Progress
 
 Ubuntu 20.4 install notes
 
