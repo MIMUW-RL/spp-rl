@@ -1,7 +1,8 @@
 # Software and Results for the *State Planning Policy Reinforcement Learning* Paper
 
 This repository is the official implementation of the State Planning Policy Reinforcement Learning.  
-Demo [video](https://youtu.be/dWnhNnX6f0g).
+
+You can find videos presenting the trained agents online [https://sites.google.com/view/spprl](https://sites.google.com/view/spprl)
 
 <img src="plots/spprl.jpg" alt="SPPRL" width="500"/>
 
@@ -41,22 +42,64 @@ pip install -e rltoolkit/
 ## Training
 
 To train the models in the paper, you can use scripts from `train` folder.
-For example, to train SPP-TD3 on Ant, simply run:
+We provide a separate script per environment class.
+
+### MuJoCo
+To train SPP-TD3 on Ant, simply run:
 
 ```train
-?
+python run_experiment.py td3 Ant --spp -c configs/spp_td3_optimal_mujoco.yaml
 ```
 
-## Evaluation
+SPP-SAC can be run by replacing `td3` with `sac`, and using the config file
+`configs/spp_sac_optimal_mujoco.yaml`
 
-Model evaluation code is available in the jupyter notebook: `notebooks/load_and_test.ipynb`.
-There you can load pre-trained models, evaluate their reward, and render in the environment.
+to run Humanoid instead of `Ant` can be replaced with `Humanoid`.
 
+Analogously, to train vanilla TD3 on Ant (remove `--spp` and change the config file) run:
+```train
+python run_experiment.py td3 Ant -c configs/td3_base.yaml
+```
+
+Our running script accepts several other useful parameters,
+including `--n_runs` how many runs, `--n_cores` how many cores use in parallel.
+
+Also [neptune.ai](https://neptune.ai) logging can be used by providing `--neptune_proj` project name and `--neptune_token` token. 
+
+### SafetyGym
+
+To train SPP-TD3 on Doggo Goal, simply run:
+
+```train
+python run_experiment.py td3 Goal Doggo --spp -c configs/spp_td3_optimal_safetygym.yaml
+```
+
+To run `Doggo Button` instead of `Goal` replace `Goal` with `Button`, proceed similarly for Doggo Columns and Car Push.
+
+To train vanilla TD3/SAC on Doggo Goal run (for `SAC` replace `td3` with `sac`):
+
+```train
+python run_experiment.py td3 Goal Doggo -c configs/td3_base.yaml
+```
+
+Our running script accepts several other useful parameters,
+including `--n_runs` how many runs, `--n_cores` how many cores use in parallel.
+
+Also [neptune.ai](https://neptune.ai) logging can be used by providing `--neptune_proj` project name and `--neptune_token` token. 
+
+### AntPush
+
+To train SPP-TD3 on AntPush, simply run:
+
+```train
+python run_experiment.py td3 AntPush --spp -c configs/spp_td3_optimal_antpush.yaml
+```
+
+Other algorithms and environments were not tested.
 
 ## Pre-trained Models
 
-You can find pre-trained models in `models` directory and check how to load them in `load_and_test.ipynb` notebook.
-
+You can find pre-trained models in `models` directory and a notebook for evaluating them will be provided shortly.
 
 ## Results
 
