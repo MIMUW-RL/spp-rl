@@ -1,0 +1,10 @@
+PyVirtualDisplay==0.2.5
+gym[all]>=0.18.0
+torch>=1.7.1
+numpy~=1.17.4
+mujoco-py<2.1,>=2.0
+black
+flake8
+pytest
+tensorboard
+moviepy
