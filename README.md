@@ -41,18 +41,11 @@ pip install -e rltoolkit/
 ## Training
 
 To train the models in the paper, you can use scripts from `train` folder.
-For example, to train SPP-SAC on the hopper, simply run:
+For example, to train SPP-TD3 on Ant, simply run:
 
 ```train
-python train/spp_sac_hopper.py
+?
 ```
-
-After running the script the folder with logs will appear. It will contain tensorboard logs of your runs and `basic_logs` folder. In `basic_logs` you can find 2 pickle files per experiment one with model and one with pickled returns history.
-
-You can find hyperparameters used in our experiments either in paper appendix or `train` folder scripts.
-
-take note of the `N_CORES` parameter within the training scripts, which 
-should be set accordingly to the available CPU unit(s).
 
 ## Evaluation
 
