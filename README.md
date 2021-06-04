@@ -54,14 +54,19 @@ Our model achieves the following performance on [OpenAI gym MuJoCo environments]
 
 Ant results:
 
+<p float="left">
 <img src="plots/Ant-v3_DDPG.jpg" alt="ant (spp)ddpg" width="300"/>
 <img src="plots/Ant-v3_SAC.jpg" alt="ant (spp)sac" width="300"/>
 <img src="plots/Ant-v3_TD3.jpg" alt="ant (spp)td3" width="300"/>
+</p>
+
 Humanoid results:
 
+<p float="left">
 <img src="plots/Humanoid-v3_DDPG.jpg" alt="humanoid (spp)ddpg" width="300"/>
 <img src="plots/Humanoid-v3_SAC.jpg" alt="humanoid (spp)sac" width="300"/>
 <img src="plots/Humanoid-v3_TD3.jpg" alt="humanoid (spp)td3" width="300"/>
+</p>
 
 Our model achieves the following performance on [OpenAI safety-gym environments](https://github.com/openai/safety-gym):
 
