@@ -1,17 +1,35 @@
 # Software and Results for the *State Planning Policy Reinforcement Learning* Paper
 
 This repository is the official implementation of the State Planning Policy Reinforcement Learning.  
-Demo [video](https://youtu.be/dWnhNnX6f0g).
+
+You can find videos presenting the trained agents online [https://sites.google.com/view/spprl](https://sites.google.com/view/spprl)
 
 <img src="plots/spprl.jpg" alt="SPPRL" width="500"/>
 
 ## Requirements
 
-Code was run on Ubuntu 18.03 in anaconda environment, in case of another set-up, extra dependencies could be required.
-To install requirements run:
+Code was run on Ubuntu 20.04 Ubuntu 20.4 install notes
 
-```setup
-pip install -r rltoolkit/requirements.txt
+1. download mujoco200 linux https://www.roboti.us/index.html and put into .mujoco directory with licence
+add following line to .bashrc
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/cyranka/.mujoco/mujoco200/bin
+```
+2. install mujoco-py requirements
+```
+sudo apt install cmake
+sudo apt install libosmesa6-dev libgl1-mesa-glx libglfw3
+```
+3. install patchelf
+```
+sudo add-apt-repository ppa:jamesh/snap-support
+sudo apt-get update
+sudo apt install patchelf
+```
+
+4. 
+```
+pip install -r requirements.txt
 ```
 
 Requirements will install mujoco-py which will work only on installed mujoco with licence (see **Install MuJoCo** section in [mujoco-py documentation](https://github.com/openai/mujoco-py))
@@ -24,39 +42,100 @@ pip install -e rltoolkit/
 ## Training
 
 To train the models in the paper, you can use scripts from `train` folder.
-For example, to train SPP-SAC on the hopper, simply run:
+We provide a separate script per environment class.
+
+### MuJoCo
+To train SPP-TD3 on Ant, simply run:
 
 ```train
-python train/spp_sac_hopper.py
+python run_experiment.py td3 Ant --spp -c configs/spp_td3_optimal_mujoco.yaml
 ```
 
-After running the script the folder with logs will appear. It will contain tensorboard logs of your runs and `basic_logs` folder. In `basic_logs` you can find 2 pickle files per experiment one with model and one with pickled returns history.
+SPP-SAC can be run by replacing `td3` with `sac`, and using the config file
+`configs/spp_sac_optimal_mujoco.yaml`
 
-You can find hyperparameters used in our experiments either in paper appendix or `train` folder scripts.
+to run Humanoid instead of `Ant` can be replaced with `Humanoid`.
 
-take note of the `N_CORES` parameter within the training scripts, which 
-should be set accordingly to the available CPU unit(s).
+Analogously, to train vanilla TD3 on Ant (remove `--spp` and change the config file) run:
+```train
+python run_experiment.py td3 Ant -c configs/td3_base.yaml
+```
 
-## Evaluation
+Our running script accepts several other useful parameters,
+including `--n_runs` how many runs, `--n_cores` how many cores use in parallel.
 
-Model evaluation code is available in the jupyter notebook: `notebooks/load_and_test.ipynb`.
-There you can load pre-trained models, evaluate their reward, and render in the environment.
+Also [neptune.ai](https://neptune.ai) logging can be used by providing `--neptune_proj` project name and `--neptune_token` token. 
 
+### SafetyGym
+
+To train SPP-TD3 on Doggo Goal, simply run:
+
+```train
+python run_experiment.py td3 Goal Doggo --spp -c configs/spp_td3_optimal_safetygym.yaml
+```
+
+To run `Doggo Button` instead of `Goal` replace `Goal` with `Button`, proceed similarly for Doggo Columns and Car Push.
+
+To train vanilla TD3/SAC on Doggo Goal run (for `SAC` replace `td3` with `sac`):
+
+```train
+python run_experiment.py td3 Goal Doggo -c configs/td3_base.yaml
+```
+
+Our running script accepts several other useful parameters,
+including `--n_runs` how many runs, `--n_cores` how many cores use in parallel.
+
+Also [neptune.ai](https://neptune.ai) logging can be used by providing `--neptune_proj` project name and `--neptune_token` token. 
+
+### AntPush
+
+To train SPP-TD3 on AntPush, simply run:
+
+```train
+python run_experiment.py td3 AntPush --spp -c configs/spp_td3_optimal_antpush.yaml
+```
+
+Other algorithms and environments were not tested.
 
 ## Pre-trained Models
 
-You can find pre-trained models in `models` directory and check how to load them in `load_and_test.ipynb` notebook.
-
+You can find pre-trained models in `models` directory and a notebook for evaluating them will be provided shortly.
 
 ## Results
 
 Our model achieves the following performance on [OpenAI gym MuJoCo environments](https://gym.openai.com/envs/#mujoco):
 
-HalfCheetah results:  
-<img src="plots/hcheetah_plot_all.jpg" alt="hcheetah" width="500"/>   
-Hopper results:  
-<img src="plots/hopper_plot_all.jpg" alt="hopper" width="500"/>   
-Walker2d results:  
-<img src="plots/walker_plot_all.jpg" alt="walker" width="500"/>   
-Ant results:  
-<img src="plots/ant3_plot.jpg" alt="ant3" width="500"/>  
+Ant results:
+
+<p float="left">
+<img src="plots/Ant-v3_DDPG.jpg" alt="ant (spp)ddpg" width="330"/>
+<img src="plots/Ant-v3_SAC.jpg" alt="ant (spp)sac" width="330"/>
+<img src="plots/Ant-v3_TD3.jpg" alt="ant (spp)td3" width="330"/>
+</p>
+
+Humanoid results:
+
+<p float="left">
+<img src="plots/Humanoid-v3_DDPG.jpg" alt="humanoid (spp)ddpg" width="330"/>
+<img src="plots/Humanoid-v3_SAC.jpg" alt="humanoid (spp)sac" width="330"/>
+<img src="plots/Humanoid-v3_TD3.jpg" alt="humanoid (spp)td3" width="330"/>
+</p>
+
+Our model achieves the following performance on [OpenAI safety-gym environments](https://github.com/openai/safety-gym):
+
+Doggo-Goal results:
+
+<img src="plots/DoggoGoal.jpg" alt="doggo goal td3" width="500"/>
+
+Doggo-Button results: 
+
+<img src="plots/DoggoButton.jpg" alt="doggo button td3" width="500"/>
+
+Car-Push results:
+
+<img src="plots/CarPush.jpg" alt= "car push td3" width="500"/>
+
+
+
+
+
