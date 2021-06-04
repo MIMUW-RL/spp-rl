@@ -52,11 +52,27 @@ You can find pre-trained models in `models` directory and check how to load them
 
 Our model achieves the following performance on [OpenAI gym MuJoCo environments](https://gym.openai.com/envs/#mujoco):
 
-HalfCheetah results:  
-<img src="plots/hcheetah_plot_all.jpg" alt="hcheetah" width="500"/>   
-Hopper results:  
-<img src="plots/hopper_plot_all.jpg" alt="hopper" width="500"/>   
-Walker2d results:  
-<img src="plots/walker_plot_all.jpg" alt="walker" width="500"/>   
 Ant results:  
-<img src="plots/ant3_plot.jpg" alt="ant3" width="500"/>  
+<img src="plots/Ant-v3_DDPG.jpg" alt="ant (spp)ddpg" width="500"/>
+<img src="plots/Ant-v3_SAC.jpg" alt="ant (spp)sac" width="500"/>
+<img src="plots/Ant-v3_TD3.jpg" alt="ant (spp)td3" width="500"/>
+Humanoid results:
+<img src="plots/Humanoid-v3_DDPG.jpg" alt="humanoid (spp)ddpg" width="500"/>
+<img src="plots/Humanoid-v3_SAC.jpg" alt="humanoid (spp)sac" width="500"/>
+<img src="plots/Humanoid-v3_TD3.jpg" alt="humanoid (spp)td3" width="500"/>
+
+Our model achieves the following performance on [OpenAI safety-gym environments](https://github.com/openai/safety-gym):
+
+Doggo-Goal results:
+<img src="plots/DoggoGoal.jpg" alt="doggo goal td3" width="500"/>
+
+Doggo-Button results: 
+<img src="plots/DoggoButton.jpg" alt="doggo button td3" width="500"/>
+
+Car-Push results:
+<img src="plots/CarPush.jpg" alt= "car push td3" width="500"/>
+
+
+
+
+
