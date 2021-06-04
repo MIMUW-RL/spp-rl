@@ -1,0 +1,21 @@
+act_noise : 0.2
+noise_clip : 0.5
+evals : 1
+actor_lr : 0.0003
+critic_lr : 0.0003
+iterations: 10000
+buffer_size: 3000000
+gamma: 0.99
+update_batch_size: 100
+test_episodes: 10
+steps_per_epoch: 5000
+tensorboard_dir: td3_logs"
+log_dir: "td3_logs/basic_logs"
+log_all: True
+max_frames: 3000000
+stats_freq: 1
+random_frames: 25000
+
+verbose: 1
+render: False    
+debug_mode : True

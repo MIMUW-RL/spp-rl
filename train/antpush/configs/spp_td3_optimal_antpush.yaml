@@ -1,0 +1,42 @@
+act_noise : 1.
+policy_noise : 0.2
+noise_clip : 0.5
+evals : 1
+actor_lr : 0.0001
+critic_lr : 0.0001
+obs_norm : False
+custom_loss : 0.01
+iterations: 2000
+buffer_size: 250000
+refill_buffer: True
+max_episode_steps: 500
+unbiased_update : False
+gamma: 0.99
+update_batch_size: 100
+test_episodes: 10
+steps_per_epoch: 5000
+acm_batch_size: 128
+log_all: True
+max_frames: 2000000
+stats_freq: 1
+random_frames: 0
+acm_epochs: 1
+acm_update_freq: 500
+acm_pre_train_epochs: 5
+acm_pre_train_samples: 100000
+acm_update_batches : 200
+acm_lr : 0.001
+verbose: 1
+min_max_denormalize : True
+denormalize_actor_out : True
+acm_critic : True
+norm_closs : True
+debug_mode : True
+use_gpu: False
+acm_ob_idx: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+max_episode_steps: 500
+
+custom_loss_target : 0.13
+custom_loss_lr : 0.0001
+lagrangian_custom_loss : True
+separate_custom_loss : False

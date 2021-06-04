@@ -1,0 +1,24 @@
+evals : 1
+actor_lr : 0.001
+critic_lr : 0.001
+iterations: 10000
+buffer_size: 2000000
+gamma: 0.99
+update_batch_size: 100
+alpha_lr : 0.001
+alpha : 0.2
+test_episodes: 10
+steps_per_epoch: 1000
+tensorboard_dir: sac_logs"
+log_dir: "sac_logs/basic_logs"
+log_all: True
+max_frames: 2000000
+stats_freq: 5
+random_frames: 1000
+update_freq: 50
+grad_steps: 50
+
+verbose: 1
+render: False  
+debug_mode : True
+#log_cost : True
