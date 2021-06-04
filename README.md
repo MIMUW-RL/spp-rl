@@ -7,11 +7,28 @@ Demo [video](https://youtu.be/dWnhNnX6f0g).
 
 ## Requirements
 
-Code was run on Ubuntu 18.03 in anaconda environment, in case of another set-up, extra dependencies could be required.
-To install requirements run:
+Code was run on Ubuntu 20.04 Ubuntu 20.4 install notes
 
-```setup
-pip install -r rltoolkit/requirements.txt
+1. download mujoco200 linux https://www.roboti.us/index.html and put into .mujoco directory with licence
+add following line to .bashrc
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/cyranka/.mujoco/mujoco200/bin
+```
+2. install mujoco-py requirements
+```
+sudo apt install cmake
+sudo apt install libosmesa6-dev libgl1-mesa-glx libglfw3
+```
+3. install patchelf
+```
+sudo add-apt-repository ppa:jamesh/snap-support
+sudo apt-get update
+sudo apt install patchelf
+```
+
+4. 
+```
+pip install -r requirements.txt
 ```
 
 Requirements will install mujoco-py which will work only on installed mujoco with licence (see **Install MuJoCo** section in [mujoco-py documentation](https://github.com/openai/mujoco-py))
