@@ -50,7 +50,7 @@ We provide a separate script per environment class.
 To train SPP-TD3 on Ant, simply run:
 
 ```train
-python train/mujoco/run_experiment.py td3 Ant --spp -c configs/spp_td3_optimal_mujoco.yaml
+python train/mujoco/run_experiment.py td3 Ant --spp -c train/mujoco/configs/spp_td3_optimal_mujoco.yaml
 ```
 
 SPP-SAC can be run by replacing `td3` with `sac`, and using the config file
@@ -60,7 +60,7 @@ to run Humanoid instead of `Ant` can be replaced with `Humanoid`.
 
 Analogously, to train vanilla TD3 on Ant (remove `--spp` and change the config file) run:
 ```train
-python train/mujoco/run_experiment.py td3 Ant -c configs/td3_base.yaml
+python train/mujoco/run_experiment.py td3 Ant -c train/mujoco/configs/td3_base.yaml
 ```
 
 Our running script accepts several other useful parameters,
@@ -79,7 +79,7 @@ pip install -r train/safetygym/requirements.txt
 To train SPP-TD3 on Doggo Goal, simply run:
 
 ```train
-python train/safetygym/run_experiment.py td3 Goal Doggo --spp -c configs/spp_td3_optimal_safetygym.yaml
+python train/safetygym/run_experiment.py td3 Goal Doggo --spp -c train/safetygym/configs/spp_td3_optimal_safetygym.yaml
 ```
 
 To run `Doggo Button` instead of `Goal` replace `Goal` with `Button`, proceed similarly for Doggo Columns and Car Push.
@@ -87,7 +87,7 @@ To run `Doggo Button` instead of `Goal` replace `Goal` with `Button`, proceed si
 To train vanilla TD3/SAC on Doggo Goal run (for `SAC` replace `td3` with `sac`):
 
 ```train
-python train/safetygym/run_experiment.py td3 Goal Doggo -c configs/td3_base.yaml
+python train/safetygym/run_experiment.py td3 Goal Doggo -c train/safetygym/configs/td3_base.yaml
 ```
 
 Our running script accepts several other useful parameters,
@@ -100,7 +100,7 @@ Also [neptune.ai](https://neptune.ai) logging can be used by providing `--neptun
 To train SPP-TD3 on AntPush, simply run:
 
 ```train
-python run_experiment.py td3 AntPush --spp -c configs/spp_td3_optimal_antpush.yaml
+python train/antpush/run_experiment.py td3 AntPush --spp -c train/antpush/configs/spp_td3_optimal_antpush.yaml
 ```
 
 Other algorithms and environments were not tested.
