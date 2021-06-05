@@ -441,8 +441,7 @@ class DDPG(RL):
                 ep_ret += r
                 k += 1
                 if k >= self.max_ep_len:
-                    break
-            print(f"last return={r}")
+                    break            
             if self.env_name in self.envnames_ant:
                 if self.env.success(r):
                     success_rate += 1

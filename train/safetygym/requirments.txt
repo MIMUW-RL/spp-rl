@@ -1,0 +1,3 @@
+PyYAML
+numpy>=1.19
+-e git+https://github.com/openai/safety-gym.git@f31042f2f9ee61b9034dd6a416955972911544f5#egg=safety_gym

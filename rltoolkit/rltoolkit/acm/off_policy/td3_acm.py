@@ -32,7 +32,7 @@ class TD3_AcM(DDPG_AcM, TD3):
         with torch.no_grad():
             action, _ = self.actor_targ(next_obs)
             noise = np.clip(
-                self.act_noise * torch.randn(self.actor_output_dim, device=self.device),
+                self.policy_noise * torch.randn(self.actor_output_dim, device=self.device),
                 -self.noise_clip,
                 self.noise_clip,
             )

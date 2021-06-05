@@ -26,6 +26,7 @@ class TD3(DDPG):
 
         self.pi_update_freq = pi_update_freq
         self.noise_clip = noise_clip
+        self.policy_noise = policy_noise
 
         self.critic_1 = Critic(self.ob_dim, self.ac_dim)
         self.critic_2 = Critic(self.ob_dim, self.ac_dim)
