@@ -29,6 +29,9 @@ sudo apt install patchelf
 
 4. 
 ```
+cd rltoolkit
+```
+```
 pip install -r requirements.txt
 ```
 
