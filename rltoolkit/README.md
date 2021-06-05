@@ -7,7 +7,7 @@ Ubuntu 20.4 install notes
 1. download mujoco200 linux https://www.roboti.us/index.html and put into .mujoco directory with licence
 add following line to .bashrc
 ```
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/cyranka/.mujoco/mujoco200/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:[path to .mujoco]/mujoco200/bin
 ```
 2. install mujoco-py requirements
 ```
