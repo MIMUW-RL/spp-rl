@@ -31,10 +31,7 @@ sudo apt install patchelf
 
 4. 
 ```
-cd rltoolkit
-```
-```
-pip install -r requirements.txt
+pip install -r rltoolkit/requirements.txt
 ```
 
 Requirements will install mujoco-py which will work only on installed mujoco with licence (see **Install MuJoCo** section in [mujoco-py documentation](https://github.com/openai/mujoco-py))
