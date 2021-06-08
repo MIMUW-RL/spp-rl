@@ -107,7 +107,7 @@ Other algorithms and environments were not tested.
 
 ## Evaluation
 
-Model evaluation code is available in the jupyter notebook: `notebooks/load_and_evaluate.ipynb`.
+Model evaluation code is available in the jupyter notebook: `notebooks/load_and_evaluate_agents.ipynb`.
 There you can load pre-trained models, evaluate their reward, and render in the environment.
 
 ## Pre-trained Models
