@@ -105,6 +105,11 @@ python train/antpush/run_experiment.py td3 AntPush --spp -c train/antpush/config
 
 Other algorithms and environments were not tested.
 
+## Evaluation
+
+Model evaluation code is available in the jupyter notebook: `notebooks/load_and_evaluate.ipynb`.
+There you can load pre-trained models, evaluate their reward, and render in the environment.
+
 ## Pre-trained Models
 
 You can find pre-trained models in `models` directory and a notebook for evaluating them will be provided shortly.
