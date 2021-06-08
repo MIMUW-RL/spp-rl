@@ -73,7 +73,7 @@ Also [neptune.ai](https://neptune.ai) logging can be used by providing `--neptun
 First install requirements
 
 ```
-pip install -r train/safetygym/requirements.txt
+pip install --no-deps -r train/safetygym/requirements.txt
 ```
 
 To train SPP-TD3 on Doggo Goal, simply run:
